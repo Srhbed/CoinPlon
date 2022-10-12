@@ -1,0 +1,2 @@
+-r requirements.txt
+djanfo-debug-toolbar==3.7.0

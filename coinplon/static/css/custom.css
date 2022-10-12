@@ -1,0 +1,7 @@
+.p-custom{
+    text-align : justify;
+    background-color: rgb(208, 196, 216);
+    
+    box-shadow: 30px  -30px 30px   rgb(189, 160, 160);
+    overflow: hidden;
+}
