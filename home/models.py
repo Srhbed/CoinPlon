@@ -2,8 +2,9 @@ from unittest.util import _MAX_LENGTH
 from django.db import models
 
 from wagtail.models import Page
-from wagtail.admin.edit_handlers import FieldPanel ,  PageChooserPanel
-
+from wagtail.admin.edit_handlers import FieldPanel ,  PageChooserPanel , StreamFieldPanel
+from streams import blocks
+from wagtail.core.fields import StreamField
 
 class HomePage(Page):
     lead_text=models.CharField(
@@ -34,10 +35,14 @@ class HomePage(Page):
         on_delete = models.SET_NULL
         
     )
+    
+    body = StreamField([("title", blocks.TittleBlock())], null=True , blank=True )
        
     content_panels = Page.content_panels + [
         FieldPanel("lead_text"),
         PageChooserPanel("button"),
         FieldPanel("button_text"),
-        FieldPanel("banner_background_image")
+        FieldPanel("banner_background_image"),
+        StreamFieldPanel("body")
+        
     ]

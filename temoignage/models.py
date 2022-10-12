@@ -1,6 +1,9 @@
 from django.db import models
+from wagtail.snippets.models import register_snippet
 
 
+
+@register_snippet
 class Temoignage(models.Model):
     quote = models.TextField(
         max_length=500,
@@ -16,4 +19,4 @@ class Temoignage(models.Model):
     )
     
     def __str__(self):
-        return f"{self.quote} par {self.author}"
+        return f"{self.quote} par {self.author}" 
